@@ -59,7 +59,8 @@ if __name__ == '__main__':
                 raise KeyError(n)
 
     criterion = nn.L1Loss()
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+#     optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = optim.SGD(model.parameters(), lr=args.lr)
 
     train_dataset = TrainDataset(args.train_file, patch_size=args.patch_size, scale=args.scale)
     train_dataloader = DataLoader(dataset=train_dataset,
